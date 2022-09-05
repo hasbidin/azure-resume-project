@@ -354,3 +354,23 @@ section:last-child {
 	-moz-animation-delay: 0, 2.5s;
 	animation-delay: 0, 2.5s;
 }
+
+.footer {
+	text-align: center;
+
+	
+}
+
+#footerLink a, a[href^=tel] {
+	color: #444; 
+	text-decoration: none;
+	-webkit-transition: all .3s ease-in;
+	-moz-transition: all .3s ease-in;
+	-o-transition: all .3s ease-in;
+	-ms-transition: all .3s ease-in;
+	transition: all .3s ease-in;
+}
+
+#footerLink a:hover { 
+	color: #cf8a05;
+}
