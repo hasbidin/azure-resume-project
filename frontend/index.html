@@ -18,8 +18,6 @@
 
 	<link href='https://fonts.googleapis.com/css?family=Rokkitt:400,700|Lato:400,300' rel='stylesheet' type='text/css'>
 
-	<script src="main.js"></script>
-
 	<link rel="icon" type="image/x-icon" href="https://sa20220727x01.blob.core.windows.net/$web/favicon.ico">
 
 	<script src="https://kit.fontawesome.com/390b8932e5.js" crossorigin="anonymous"></script>
@@ -243,6 +241,30 @@
 			</section>
 		</div>
 	</div>
+
+	<script>
+		window.addEventListener('DOMContentLoaded', (event) => {
+			getVisitCount();
+		});
+
+		const functionApi = 'https://fa20220727x01.azurewebsites.net/api/HttpTrigger1?code=WFNVG8d_MwDepgY3eIpRXe72mxjPFKDbPl4TPYCCLxpRAzFurEunOg==';
+
+		const getVisitCount = () => {
+			let count = 30;
+			fetch(functionApi)
+				.then(response => {
+					return response.json()
+				})
+				.then(response => {
+					console.log("Website called function API.");
+					count = response;
+					document.getElementById('counter').innerText = count;
+				}).catch(function (error) {
+					console.log(error);
+				});
+			return count;
+		}
+	</script>
 </body>
 
 </html>
