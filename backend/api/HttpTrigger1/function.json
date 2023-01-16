@@ -1,0 +1,42 @@
+﻿{
+  "bindings": [
+    {
+      "authLevel": "function",
+      "type": "httpTrigger",
+      "direction": "in",
+      "name": "req",
+      "methods": [
+        "get",
+        "post"
+      ]
+    },
+    {
+      "type": "http",
+      "direction": "out",
+      "name": "res"
+    },
+    {
+      "name": "inputDocument",
+      "databaseName": "visitorcounter-db",
+      "collectionName": "visitorcounter-container",
+      "connectionStringSetting": "cosmosdb20220727x01_DOCUMENTDB",
+      "direction": "in",
+      "type": "cosmosDB"
+    },
+    {
+      "name": "outputDocument",
+      "direction": "out",
+      "type": "cosmosDB",
+      "connectionStringSetting": "cosmosdb20220727x01_DOCUMENTDB",
+      "databaseName": "visitorcounter-db",
+      "collectionName": "visitorcounter-container"
+    },
+    {
+      "name": "outputQueueItem",
+      "direction": "out",
+      "type": "queue",
+      "connection": "AzureWebJobsStorage",
+      "queueName": "outqueue"
+    }
+  ]
+}
