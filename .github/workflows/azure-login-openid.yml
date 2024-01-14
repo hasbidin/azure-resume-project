@@ -22,8 +22,8 @@ jobs:
           az group list
           pwd
 
-    # - name: Upload to blob storage
-    #   run: az storage blob upload-batch --account-name sa20220727x01 --auth-mode key -d "$web" -s ./frontend/ --overwrite=True
+    - name: Upload to blob storage
+      run: az storage blob upload-batch --account-name sa20220727x01 --auth-mode key -d "$web" -s "./frontend/" --overwrite=True
 
     - name: Purge CDN endpoint
       run: az cdn endpoint purge --content-paths  "/*" --profile-name "azurecdn20220728x01" --name "azurecdn20220728x01" --resource-group "RG-20220727-azure-resume-project"
