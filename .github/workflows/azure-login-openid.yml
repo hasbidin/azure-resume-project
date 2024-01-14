@@ -21,3 +21,14 @@ jobs:
           az account show
           az group list
           pwd
+
+    - name: Upload to blob storage
+      uses: azure/CLI@v1
+      with:
+        inlineScript: |
+            az storage blob upload-batch --account-name sa20220727x01 --auth-mode key -d '$web' -s ./frontend/ --overwrite=True
+    - name: Purge CDN endpoint
+      uses: azure/CLI@v1
+      with:
+        inlineScript: |
+          az cdn endpoint purge --content-paths  "/*" --profile-name "azurecdn20220728x01" --name "azurecdn20220728x01" --resource-group "RG-20220727-azure-resume-project"
